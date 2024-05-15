@@ -34,6 +34,9 @@ use JsonMapper\JsonMapperInterface;
 
 class ApiService
 {
+    public const SANDBOX_URL = 'https://api.sandbox.khpos.hu/api/v1.0';
+    public const PRODUCTION_URL = 'https://api.khpos.hu/api/v1.0';
+
     private JsonMapperInterface $mapper;
 
     public function __construct(
@@ -41,6 +44,13 @@ class ApiService
         private readonly HttpClientInterface $httpClient,
     ) {
         $this->mapper = (new JsonMapperFactory())->bestFit();
+    }
+
+    public static function make(
+        CryptoInterface $crypto,
+        HttpClientInterface $httpClient,
+    ): self {
+        return new self($crypto, $httpClient);
     }
 
     /**

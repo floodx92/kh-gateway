@@ -7,9 +7,6 @@ use Floodx92\KhGateway\Exception\HttpException;
 
 class CurlHttpClient implements HttpClientInterface
 {
-    public const SANDBOX_URL = 'https://api.sandbox.khpos.hu/api/v1.0';
-    public const PRODUCTION_URL = 'https://api.khpos.hu/api/v1.0';
-
     private const DEFAULT_OPTIONS = [
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_HEADER => false,
