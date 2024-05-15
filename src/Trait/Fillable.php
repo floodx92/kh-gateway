@@ -40,10 +40,18 @@ trait Fillable
 
     public function toArray(bool $filter = true): array
     {
-        if (!$filter) {
-            return get_object_vars($this);
+        $array = get_object_vars($this);
+
+        foreach ($array as $key => $value) {
+            if (is_object($value) && method_exists($value, 'toArray')) {
+                $array[$key] = $value->toArray($filter);
+            }
         }
 
-        return array_filter(get_object_vars($this), fn ($value) => null !== $value);
+        if (!$filter) {
+            return $array;
+        }
+
+        return array_filter($array, fn ($value) => null !== $value);
     }
 }
