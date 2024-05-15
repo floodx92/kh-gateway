@@ -13,6 +13,7 @@ use Floodx92\KhGateway\Model\Request\GooglePayProcessRequest;
 use Floodx92\KhGateway\Model\Request\OneClickEchoRequest;
 use Floodx92\KhGateway\Model\Request\OneClickInitRequest;
 use Floodx92\KhGateway\Model\Request\OneClickProcessRequest;
+use Floodx92\KhGateway\Model\Request\PaymentCloseRequest;
 use Floodx92\KhGateway\Model\Request\PaymentInitRequest;
 use Floodx92\KhGateway\Model\Request\PaymentProcessRequest;
 use Floodx92\KhGateway\Model\Request\PaymentRefundRequest;
